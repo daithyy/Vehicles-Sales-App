@@ -1,0 +1,81 @@
+﻿<Window x:Class="CA1.VehicleDetails"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:CA1"
+        mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Vehicle Details" Height="640" Width="320"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner"
+        Loaded="VehicleWindow_Loaded" >
+    
+    <materialDesign:TransitioningContent>
+        <materialDesign:TransitioningContent.OpeningEffects>
+            <materialDesign:TransitionEffect Kind="SlideInFromLeft" />
+            <materialDesign:TransitionEffect Kind="FadeIn" />
+        </materialDesign:TransitioningContent.OpeningEffects>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label x:Name="lblTitle" Content="Vehicle Details" Grid.Column="0" Grid.ColumnSpan="3" 
+               HorizontalAlignment="Center" VerticalAlignment="Center" 
+               FontFamily="Microsoft YaHei" FontSize="18.667"/>
+
+            <StackPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1"
+                    VerticalAlignment="Stretch" HorizontalAlignment="Center" Orientation="Horizontal">
+                <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <Label x:Name="lblMake" Content="Make" VerticalAlignment="Stretch" Margin="0,5" />
+                    <Label x:Name="lblModel" Content="Model" VerticalAlignment="Stretch" Margin="0,5" />
+                    <Label x:Name="lblPrice" Content="Price" VerticalAlignment="Stretch" Margin="0,5" />
+                    <Label x:Name="lblYear" Content="Year" VerticalAlignment="Stretch" Margin="0,5" />
+                    <Label x:Name="lblColour" Content="Colour" VerticalAlignment="Stretch" Margin="0,5" />
+                    <Label x:Name="lblMileage" Content="Mileage" VerticalAlignment="Stretch" Margin="0,5" />
+                    <Label x:Name="lblBodyType" Content="Body Type" VerticalAlignment="Stretch" Margin="0,5" />
+                    <Label x:Name="lblWheelbase" Content="Wheelbase" Margin="0,10,0,0" VerticalAlignment="Stretch" />
+                    <Label x:Name="lblDescription" Content="Description" Margin="0,10,0,0" VerticalAlignment="Stretch" />
+                    <Label x:Name="lblImage" Content="Image" Margin="0,110,0,0" VerticalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Grid.Column="1" Grid.Row="1" Margin="5,0,0,0" Width="200"
+                        VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <TextBox x:Name="txtblkMake" Margin="0,5"/>
+                    <TextBox x:Name="txtblkModel" Margin="0,6"/>
+                    <TextBox x:Name="txtblkPrice" Margin="0,-5" materialDesign:HintAssist.Hint="€" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox x:Name="txtblkYear" Margin="0,14"/>
+                    <xctk:ColorPicker Name="clrpickerDialog"></xctk:ColorPicker>
+                    <TextBox x:Name="txtblkMileage" materialDesign:HintAssist.Hint="Kilometres" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <ComboBox x:Name="combobxBodyType" Style="{DynamicResource MaterialDesignComboBox}" Margin="0,10"/>
+                    <ComboBox x:Name="combobxWheelbase" Style="{DynamicResource MaterialDesignComboBox}" Margin="0,6"/>
+                    <TextBox x:Name="txtblkDescription" Style="{DynamicResource MaterialDesignTextBox}" Height="120" TextWrapping="Wrap" 
+                         TextOptions.TextHintingMode="Animated"
+                         VerticalScrollBarVisibility="Visible"/>
+                    <Button x:Name="btnAddImage" Content="Select Image" Margin="0,15" Width="auto" HorizontalAlignment="Center" Click="btnAddImage_Click" />
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button x:Name="btnAdd" Content="ACTION" Width="90" Margin="0,0,20,0" IsDefault="True" Click="btnAdd_Click"/>
+                <Button x:Name="btnCancel" Content="CANCEL" Width="90" IsCancel="True"/>
+            </StackPanel>
+        </Grid>
+    </materialDesign:TransitioningContent>
+</Window>
